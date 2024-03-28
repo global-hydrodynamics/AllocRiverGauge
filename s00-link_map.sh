@@ -7,6 +7,9 @@
 BASE=`pwd`
 
 cd $BASE
+
+#======================
+echo "Copy or Link High-resolution River Map"
 mkdir -p hires_map
 
 MAPGLB='./hires_map/glb_30sec_pd8_v400'
@@ -42,11 +45,11 @@ ln -sf $MAPJPN 05sec_jpn
 #=============
 cd $BASE
 
-mkdir -p map
+#======================
+echo "Copy source code to glb_15min & tej_01min"
 cd map
 
-mkdir -p glb_15min
-mkdir -p tej_01min
+# Copy mapdata from CaMa-Flood package (glb_15min, tej_01min)
 
 cp -r src/src_param glb_15min
 cp -r src/src_param tej_01min
