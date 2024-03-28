@@ -1,0 +1,8 @@
+       21600      !! grid number (east-west)
+       21600      !! grid number (north-south)
+          10     !! floodplain layer
+  0.00138889     !! grid size
+     120.000     !! west  edge (deg)
+     150.000     !! east  edge (deg)
+      20.000     !! south edge (deg)
+      50.000     !! north edge (deg)

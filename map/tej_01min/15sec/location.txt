@@ -1,0 +1,3 @@
+     1     narea
+ iarea     carea      west      east     south     north      nx      ny               csize
+     1     15sec   123.000   148.000    24.000    46.000    6000    5280   0.004166666666667

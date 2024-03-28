@@ -1,0 +1,11 @@
+*
+!*/
+!*.*
+!LICENSE
+!Mkinclude_*
+!Makefile
+.DS_Store
+*.bin
+*.ctl
+*.o
+*.dSYM
