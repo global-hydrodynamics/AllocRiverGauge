@@ -8,8 +8,15 @@ title: |
   (for MERIT Hydro / J-FlwDir / CaMa-Flood river network map)
 ---
 
-This is a documentation of the tool to semi-automatically allocate river gauges (discharge / water level) onto CaMa-Flood river map. Sample code/data package available on CaMa-Flood webpage:  
+This is a documentation of the tool to semi-automatically allocate river gauges (discharge / water level) onto CaMa-Flood river map, for efficiently perform simulation-observation comparison.
+
+Sample code/data package available on CaMa-Flood webpage.  
 <https://hydro.iis.u-tokyo.ac.jp/~yamadai/cama-flood/>
+
+The source code for gauge allocation is also managed as GitHub repository.  
+<https://github.com/global-hydrodynamics/AllocRiverGauge>
+
+Note that GitHub repository only contains source code (map data is not included). So we recommend you to use the package downloadable from the webpage.
 
 # Table of Contents
 
@@ -21,7 +28,7 @@ This is a documentation of the tool to semi-automatically allocate river gauges 
 
 [High-resolution River Maps [3](#high-resolution-river-maps)](#high-resolution-river-maps)
 
-[Coarse-resolution CaMa-Flood River Maps [3](#coarse-resolution-cama-flood-river-maps)](#coarse-resolution-cama-flood-river-maps)
+[Coarse-resolution CaMa-Flood River Maps [4](#coarse-resolution-cama-flood-river-maps)](#coarse-resolution-cama-flood-river-maps)
 
 [2.2 Sample input/allocated data (river gauge list) [4](#sample-inputallocated-data-river-gauge-list)](#sample-inputallocated-data-river-gauge-list)
 
@@ -53,11 +60,13 @@ This is a documentation of the tool to semi-automatically allocate river gauges 
 
 [\[Step-2\] Allocation onto CaMa-Flood coarse-resolution river map [26](#step-2-allocation-onto-cama-flood-coarse-resolution-river-map-1)](#step-2-allocation-onto-cama-flood-coarse-resolution-river-map-1)
 
-[Example 2: Allocation of Japan MLIT water level gauges [28](#example-2-allocation-of-japan-mlit-water-level-gauges)](#example-2-allocation-of-japan-mlit-water-level-gauges)
+[Example 3: Allocation of Japan MLIT water level gauges [27](#example-3-allocation-of-japan-mlit-water-level-gauges)](#example-3-allocation-of-japan-mlit-water-level-gauges)
 
-[\[Step-1\] Allocation onto high-resolution river map [28](#step-1-allocation-onto-high-resolution-river-map-1)](#step-1-allocation-onto-high-resolution-river-map-1)
+[\[Step-1\] Allocation onto high-resolution river map [27](#step-1-allocation-onto-high-resolution-river-map-1)](#step-1-allocation-onto-high-resolution-river-map-1)
 
-[\[Step-2\] Allocation onto CaMa-Flood coarse-resolution river map [31](#step-2-allocation-onto-cama-flood-coarse-resolution-river-map-2)](#step-2-allocation-onto-cama-flood-coarse-resolution-river-map-2)
+[\[Step-2\] Allocation onto CaMa-Flood coarse-resolution river map [30](#step-2-allocation-onto-cama-flood-coarse-resolution-river-map-2)](#step-2-allocation-onto-cama-flood-coarse-resolution-river-map-2)
+
+[4. References [31](#references)](#references)
 
 # Basic strategy for gauge allocation
 
@@ -252,7 +261,7 @@ For river basin larger than 100km<sup>2</sup>, it is assumed that 10km in locati
 
 The pixel around the reported lat-lon location are searched within a search radius, and the allocation score (***alloc_score***) is calculated as the sum of the ***err_adj*** (uparea error) and ***err_loc*** (location error). The pixel showing minimum alloc_score is selected as “allocation point”.
 
-<img src="media/media/image1.png" style="width:3.80165in;height:3.07342in" alt="マップ 自動的に生成された説明" />
+<img src="media/media/image1.png" style="width:3.75472in;height:3.03548in" alt="マップ 自動的に生成された説明" />
 
 Figure: Example of river gauge allocation.
 
@@ -321,7 +330,7 @@ The list of river flow gauges with attribute (***ID, Lat, Lon, Uparea***) is use
 
 Based on the location info (***Lat, Lon, Uparea***), this code searches the coarse-resolution grid which corresponds to the river gauges allocated on high-resolution river network map. Here, we consider the three types of correspondence between the coarse-resolution grid and the gauging station, depending on where the gauge exists on the sub-grid-scale river networks within each grid (see figure below).
 
-<img src="media/media/image2.png" style="width:5.49949in;height:1.79047in" alt="時計の画面のスクリーンショット 中程度の精度で自動的に生成された説明" />
+<img src="media/media/image2.png" style="width:5.4756in;height:1.78269in" alt="時計の画面のスクリーンショット 中程度の精度で自動的に生成された説明" />
 
 Figure: Types of river flow gauge allocation depending on the sub-grid location of the gauge
 
@@ -503,7 +512,7 @@ Here ***input/GRDC_original_2019Dec.csv*** is used as a sample input.
 
 Make sure that the 1<sup>st</sup> – 4<sup>th</sup> column of the import data represents ***ID, Lat, Lon, Uparea***
 
-<img src="media/media/image7.png" style="width:5.22542in;height:1.21111in" />
+<img src="media/media/image7.png" style="width:5.21678in;height:1.20911in" />
 
 Figure: Example of input data (GRDC_original_2019.csv).
 
@@ -639,7 +648,7 @@ These gauges (relative error between 50% and 150%) can be considered as relative
 
 Sometimes, reported attributes are wrong or not consistent to high-resolution river map, but usually automatic correction works well. (e.g. GRDC ID=1147013, reported location is 15km away from the MERIT Hydro river stream, but correctly allocated)
 
-<img src="media/media/image9.png" style="width:3.74525in;height:3.25816in" alt="マップ 自動的に生成された説明" />
+<img src="media/media/image9.png" style="width:3.73045in;height:3.24528in" alt="マップ 自動的に生成された説明" />
 
 Example of successful automatic allocation.
 
@@ -657,7 +666,7 @@ Some gauges cannot be allocated on high-resolution river map, because their loca
 
 After careful visual inspection, attribute of 17 GRDC gauges are modified.
 
-<img src="media/media/image10.png" style="width:5.87261in;height:2.14422in" alt="アプリケーション, テーブル, Excel 自動的に生成された説明" />
+<img src="media/media/image10.png" style="width:5.83935in;height:2.13208in" alt="アプリケーション, テーブル, Excel 自動的に生成された説明" />
 
 List of GRDC gauges whose attributes are modified.
 
@@ -993,7 +1002,7 @@ The output file contains:
 
 <img src="media/media/image4.png" style="width:5.90556in;height:0.85417in" alt="コンピューターの画面 中程度の精度で自動的に生成された説明" />
 
-## Example 2: Allocation of Japan MLIT water level gauges
+## Example 3: Allocation of Japan MLIT water level gauges
 
 Procedure for allocating Japan MLIT water level gauges on both high-resolution river map (MERIT Hydro / J-FlwDir) and coarse-resolution river map (CaMa-Flood) are explained.
 
