@@ -43,4 +43,6 @@ for i, row in df.iterrows():
 df['DAM_NAME_c'] = name_l
 df['RIVER_c']    = name2_l
 
-df[['ID', 'lat_alloc', 'lon_alloc', 'area_alloc', 'lat_ori', 'lon_ori', 'area_ori','DAM_NAME_c', 'RIVER_c', 'CAP_MCM', 'ELEV_MASL', 'YEAR','ALT_YEAR','REM_YEAR', 'DAM_HGT_M']].to_csv(out_file, index=None)
+df_new = df.rename(columns={'DAM_NAME_c':'DamName', 'RIVER_c':'RiverName', 'DAM_HGT':'DamHeight'})
+
+df_new[['ID', 'lat_alloc','lon_alloc','area_alloc', 'DamName','RiverName', 'CAP_MCM', 'YEAR','ALT_YEAR','REM_YEAR', 'ELEV_MASL','DAM_HGT_M', 'lat_ori','lon_ori','area_ori']].to_csv(out_file, index=None)

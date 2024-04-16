@@ -1,6 +1,10 @@
 # Allocate River Gauges
 Tool to semi-automatically allocate river gauges (discharge / water level) onto global river maps.
 
+Current latest version is v1.01
+
+v1.01: modification of dam parameter list format, for CaMa-Flood v4.13
+
 ## Note
 GitHub version only contains source code.
 Sample package conaining map data is available on CaMa-Flood webpage:  
