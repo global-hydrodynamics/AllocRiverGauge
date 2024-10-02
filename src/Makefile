@@ -6,6 +6,7 @@ TARGETS=\
 alloc_gauge_latlon_area \
 alloc_gauge_latlon_only \
 check_gauge_latlon_area \
+alloc_gauge_latlon_areamix \
 
 all: $(TARGETS)
 
