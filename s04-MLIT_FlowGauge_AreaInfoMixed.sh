@@ -1,5 +1,6 @@
 #!/bin/sh
-# allocate flow gauge (ID, lat, lon) on 05sec Japan river network. No upstream area
+# allocate flow gauge (ID, lat, lon) on 05sec Japan river network. 
+# for a specific case: Upstream area info is available for some but not available for the others
 
 #REGION=global01
 REGION=japan05
