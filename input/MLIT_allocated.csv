@@ -1,4 +1,4 @@
-﻿ID,lat_alloc,lon_alloc,area_alloc,lat_ori,lon_ori,loc_km_diff,ix,ix,Station Name,River Name,Memo
+﻿ID,lat_alloc,lon_alloc,area_alloc,lat_ori,lon_ori,loc_km_diff,ix,iy,Station Name,River Name,Memo
 1,44.074,142.74,140.469,44.075,142.74,0.085,16373,4267,茂志利,天塩川,
 2,44.109,142.598,398.936,44.109,142.598,0.009,16271,4242,奥士別,天塩川,
 3,44.119,142.534,549.387,44.119,142.534,0.028,16225,4235,剣和,天塩川,
